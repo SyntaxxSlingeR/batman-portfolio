@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Batman Interactive Tech Portfolio">
+    <meta name="keywords" content="web developer, portfolio, Batman, tech, JavaScript, CSS, animations">
+    <title>Batman</title>
+
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="try3.css">
+
+    <!-- JavaScript File -->
+    <script defer src="try3.js"></script>
+
+    <style>
+        /* Flying bats animation */
+        .bat {
+            position: absolute;
+            width: 150px;  /* Size of the bat */
+            height: 150px;
+            background-image: url('bat1.png'); /* Replace with your bat image URL */
+            background-size: cover;
+            animation: flyBat 3s infinite linear;
+        }
+
+        /* Keyframes for flying bats in the same direction */
+        @keyframes flyBat {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(0deg);
+                opacity: 0;
+            }
+        }
+
+        /* GothamDev Flicker animation */
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.1;
+            }
+        }
+
+        /* Apply flicker animation to GothamDev */
+        .logo {
+            font-size: 3rem;
+            font-weight: medium;
+            color: #ffffff;
+            animation: flicker 2s infinite;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Gotham<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-content">
+            <h1>I'm Batman</h1>
+            <p>Your Friendly Neighbourhood Web Developer</p>
+            <a href="#projects" class="cta-button">Explore My Work</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h1>About Me</h1>
+        <h2>I'm a passionate web developer who thrives in building user-centric, futuristic web applications. Just like Batman, I work in the shadows to create cutting-edge solutions.</h2>
+        <img src="batman3.jpg" alt="Batman Image">
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">React</div>
+            <div class="skill-card">Node.js</div>
+            <div class="skill-card">MongoDB</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>My Achievements</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="batman32.jpg" alt="Project 1">
+                <h3>Bat-Signal Web App</h3>
+                <p>An app to send Bat-Signals using real-time web technology.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="batman3.jpg" alt="Project 2">
+                <h3>Gotham Dashboard</h3>
+                <p>A dashboard for tracking crime rates and managing Batmobiles.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact Alfred</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Signal</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 BATMANDev. All rights not reserved.</p>
+    </footer>
+
+    <!-- Flying Bats Effect -->
+    <script>
+        function createFlyingBats() {
+            const numberOfBats = 30; // Number of bats to appear
+            for (let i = 0; i < numberOfBats; i++) {
+                const bat = document.createElement('div');
+                bat.classList.add('bat');
+                bat.style.left = `${Math.random() * 100}vw`;  // Random horizontal position
+                bat.style.top = `${Math.random() * 50}vh`;   // Random vertical position, starting from the top
+                document.body.appendChild(bat);
+            }
+        }
+
+        window.onload = createFlyingBats;
+    </script>
+
+</body>
+</html>
